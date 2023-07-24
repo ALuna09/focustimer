@@ -3,7 +3,9 @@ const Timer = (props) => {
         seconds,
         setSeconds,
         sessionTime,
-        breakTime
+        setSessionTime,
+        breakTime,
+        setBreakTime
     } = props;
 
     const formatTime = (seconds) => {
@@ -18,9 +20,20 @@ const Timer = (props) => {
 
     return (
         <>
-        <h1
-            id="time-left"
-        >{formatTime(seconds)}</h1>
+            <h1
+                id="time-left"
+            >{formatTime(seconds)}</h1>
+            <button
+                id="start_stop"
+            >{">"}ll</button>
+            <button
+                id="reset"
+                onClick={() => {
+                    setBreakTime(5);
+                    setSessionTime(25);
+                    setSeconds(25 * 60);
+                }}
+            >reset</button>
         </>
     )
 }

@@ -24,7 +24,9 @@ function App() {
         seconds={seconds}
         setSeconds={setSeconds}
         breakTime={breakTime}
+        setBreakTime={setBreakTime}
         sessionTime={sessionTime}
+        setSessionTime={setSessionTime}
       />
     </>
   )
