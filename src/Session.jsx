@@ -19,16 +19,16 @@ const Session = (props) => {
                 id="session-label"
             >Session Length</h3>
             <button
-                id="session-increment"
-                onClick={() => increment(sessionTime)}
-            >up</button>
+                id="session-decrement"
+                onClick={() => decrement(sessionTime)}
+            >dn</button>
             <strong
                 id="session-length"
             >{sessionTime}</strong>
             <button
-                id="session-decrement"
-                onClick={() => decrement(sessionTime)}
-            >dn</button>
+                id="session-increment"
+                onClick={() => increment(sessionTime)}
+            >up</button>
         </>
     )
 }

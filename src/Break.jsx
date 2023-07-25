@@ -19,16 +19,16 @@ const Break = (props) => {
                 id="break-label"
             >Break Length</h3>
             <button
-                id="break-increment"
-                onClick={() => increment(breakTime)}
-            >up</button>
+                id="break-decrement"
+                onClick={() => decrement(breakTime)}
+            >dn</button>
             <strong
                 id="break-length"
             >{breakTime}</strong>
             <button
-                id="break-decrement"
-                onClick={() => decrement(breakTime)}
-            >dn</button>
+                id="break-increment"
+                onClick={() => increment(breakTime)}
+            >up</button>
         </>
     )
 }
