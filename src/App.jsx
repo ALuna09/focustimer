@@ -8,6 +8,8 @@ function App() {
   const [breakTime, setBreakTime] = useState(5);
   const [sessionTime, setSessionTime] = useState(25);
   const [seconds, setSeconds] = useState(sessionTime * 60);
+  const [intervalId, setIntervalId] = useState(0);
+  const [playing, setPlaying] = useState(false);
 
   return (
     <>
@@ -27,6 +29,10 @@ function App() {
         setBreakTime={setBreakTime}
         sessionTime={sessionTime}
         setSessionTime={setSessionTime}
+        intervalId={intervalId}
+        setIntervalId={setIntervalId}
+        playing={playing}
+        setPlaying={setPlaying}
       />
     </>
   )

@@ -5,11 +5,12 @@ const Timer = (props) => {
         sessionTime,
         setSessionTime,
         breakTime,
-        setBreakTime
+        setBreakTime,
+        intervalId,
+        setIntervalId,
+        playing,
+        setPlaying
     } = props;
-
-    let playing = false;
-    let countdown;
 
     const formatTime = (seconds) => {
         let mm = Math.floor(seconds / 60);
@@ -21,15 +22,28 @@ const Timer = (props) => {
         return `${mm}:${ss}`;
     }
 
-    // const start = () => {
-    //     countdown = setInterval (() => {
-    //         setSeconds(prev => prev - 1);
-    //     }, 1000);
-    // }
+    const start = () => {
+        let countdown = setInterval (() => {
+            setSeconds(prev => prev - 1);
+        }, 1000);
 
-    // const stop = () => {
-    //     clearInterval(countdown);
-    // }
+        setIntervalId(countdown);
+    }
+
+    const stop = () => {
+        clearInterval(intervalId);
+    }
+
+    const playPause = () => {
+        setPlaying(prev => !prev);
+        let tempPlaying = !playing;
+        
+        if (tempPlaying && seconds > 0) {
+            start();
+        } else {
+            stop();
+        }
+    }
 
     return (
         <>
@@ -38,19 +52,12 @@ const Timer = (props) => {
             >{formatTime(seconds)}</h1>
             <button
                 id="start_stop"
-                onClick={() => {
-                    playing = !playing;
-                    // if (playing) {
-                    //     start();
-                    // } else {
-                    //     stop();
-                    // }
-                }}
+                onClick={playPause}
             >{">"}ll</button>
             <button
                 id="reset"
                 onClick={() => {
-                    playing = false;
+                    setPlaying(false);
                     setBreakTime(5);
                     setSessionTime(25);
                     setSeconds(25 * 60);
