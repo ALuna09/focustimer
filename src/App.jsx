@@ -7,9 +7,10 @@ import Timer from './Timer'
 function App() {
   const [breakTime, setBreakTime] = useState(5);
   const [sessionTime, setSessionTime] = useState(25);
-  const [seconds, setSeconds] = useState(sessionTime * 60);
+  const [seconds, setSeconds] = useState(5); //TODO Turn back to default state (not 5)
   const [intervalId, setIntervalId] = useState(0);
   const [playing, setPlaying] = useState(false);
+  const [studyTime, setStudyTime] = useState(false);
 
   return (
     <>
@@ -33,6 +34,8 @@ function App() {
         setIntervalId={setIntervalId}
         playing={playing}
         setPlaying={setPlaying}
+        studyTime={studyTime}
+        setStudyTime={setStudyTime}
       />
     </>
   )
